@@ -15,6 +15,9 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+
+   
+    
   </head>
 
   <body>
@@ -47,6 +50,21 @@
         </div>
       </div>
     </nav>
+
+    <div id="productContainer" class="product-container">
+    </div>
+
+    <div class="buttons-container">
+    <button onclick="ordenar('ascendente')">Ordenar Precio Ascendente</button>
+    <button onclick="ordenar('descendente')">Ordenar Precio Descendente</button>
+    <button onclick="ordenarPorRelevancia()">Ordenar por Relevancia</button>
+  </div>
+
+
+    <head>
+      <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+
     <main class="pb-5 container">
       <h1 id="ih1Products" style=text-align:center>Productos</h1>
       <h5 id="ih5Products" style=text-align:center>

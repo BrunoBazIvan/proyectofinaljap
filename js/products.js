@@ -3,7 +3,12 @@ const Cars_URL = "https://japceibal.github.io/emercado-api/cats_products/101.jso
 
 const icontainer = document.getElementById('icontainerCars')
 
+let sortOrder = 'ascentente'; // Variable para el orden de clasificación ascendente
+
+const productContainer = document.getElementById('productContainer');
+
 function showData(dataArray){
+  productContainer.innerHTML = '';
 
   for (const item of dataArray) {
 
@@ -23,11 +28,41 @@ function showData(dataArray){
   }
 };
 
+document.addEventListener('DOMContentLoaded', function () {
+  fetch(Categorias_URL)
+    .then((response) => response.json())
+    .then((data) => {
+      showData(data.products);
+    })
+    .catch(error => console.error("Error loading data:", error));
+});
 
 
-
-  fetch(Cars_URL)
+fetch(Cars_URL)
   .then((response) => response.json())
-  .then((data) => {showData(data.products);})
-  .catch(error => console.error("Error al cargar los datos:", error));
+  .then((data) => {
+    carsData = data.products;
+    showData(carsData);
+  })
+  .catch(error => console.error("Error al cargar los datos:", error));
 
+
+
+function ordenar(cost) { //ordena la lista de precio
+  sortOrder = cost; //ascendente
+  data.products.sort(function(a, b) {
+    if (sortOrder === 'ascendente') {
+      return a.cost - b.cost;
+    } else {
+      return b.cost - a.cost;
+    }
+  });
+  showData(data.products); // Muestra los datos ordenados
+}
+
+function ordenarPorRelevancia() { // Ordena descendente la relevancia
+  data.products.sort(function(a, b) {
+    return b.soldCount - a.soldCount;
+  });
+  showData(data.products); // Muestra los datos ordenados
+}

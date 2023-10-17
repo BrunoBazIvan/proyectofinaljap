@@ -483,3 +483,13 @@ color: yellow;
  width: 70%;
 }
 
+.containerCost{
+  width: 70%;
+  font-size: small;
+  background: #faf9f9;
+  padding: 5px;
+}
+.containerCost div{
+  border: solid 1px rgb(220, 220, 220);
+  padding: 5px;
+}

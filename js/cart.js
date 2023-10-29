@@ -201,7 +201,7 @@ express.addEventListener('click', calcularCostoEnvio);
 standard.addEventListener('click', calcularCostoEnvio);
 
 
-document.addEventListener('DOMContentLoaded', async function () {
+/*document.addEventListener('DOMContentLoaded', async function () {
 
   // Evento para guardar la forma de pago
   document.getElementById('guardarFormaPago').addEventListener('click', function () {
@@ -230,12 +230,39 @@ document.addEventListener('DOMContentLoaded', async function () {
   total.innerHTML = costoTotal(subTotal, parseFloat(costo.textContent)).toFixed(
     0
   );
-})
+})*/
+ 
+//Modifica el botón forma de pago al metodo seleccionado 
+
+document.addEventListener('DOMContentLoaded', function () {
+  const tarjetaRadio = document.getElementById('tarjeta');
+  const transferenciaRadio = document.getElementById('transferencia');
+  const guardarFormaPagoBtn = document.getElementById('guardarFormaPago');
+  const formaDePagoSelect = document.getElementById('formadepago');
+
+  guardarFormaPagoBtn.addEventListener('click', function () {
+    let formaDePagoSeleccionada = '';
+
+    if (tarjetaRadio.checked) {
+      formaDePagoSeleccionada = "Tarjeta de Crédito";
+    } else if (transferenciaRadio.checked) {
+      formaDePagoSeleccionada = "Transferencia Bancaria";
+    }
+
+    // Actualiza el texto del botón "Forma de Pago"
+    formaDePagoSelect.innerText = formaDePagoSeleccionada;
+  });
+});
+
+
+
+
+
 
 premium.addEventListener("click", calcularCostoEnvio);
 express.addEventListener("click", calcularCostoEnvio);
 standard.addEventListener("click", calcularCostoEnvio);
-  })})
+  
 
   document.addEventListener("DOMContentLoaded", function () {
   //const Allform = document.querySelectorAll('.needs-validation')
@@ -267,3 +294,4 @@ standard.addEventListener("click", calcularCostoEnvio);
       form.classList.add("was-validated");
     });
   });
+

@@ -265,14 +265,14 @@ standard.addEventListener("click", calcularCostoEnvio);
   
 
   document.addEventListener("DOMContentLoaded", function () {
+  //const Allform = document.querySelectorAll('.needs-validation')
     const form = document.getElementById("sell-info");
     const formPago = document.getElementById("formadepago-form")
-    let carthtml = "./index.html"
+    
     form.addEventListener("submit", function (event) {
       if (!form.checkValidity() && !formPago.checkValidity()) {
         event.preventDefault();
         event.stopPropagation();
-        //mostrarBootstrapAlert('danger', 'Por favor, rellena todos los campos requeridos.');
   //alert("no anda")
         // Mostrar una alerta SweetAlert en caso de campos requeridos vacíos
         Swal.fire({
@@ -281,7 +281,6 @@ standard.addEventListener("click", calcularCostoEnvio);
           icon: "error",
         });
       } else {
-        //mostrarBootstrapAlert('success', 'Tu compra ha sido procesada con éxito.');
         alert("Comprado")
          // Mostrar una alerta SweetAlert en caso de envío exitoso
       Swal.fire({
@@ -290,59 +289,9 @@ standard.addEventListener("click", calcularCostoEnvio);
         icon: "success",
         showConfirmButton: true, // Ocultar el botón de confirmación
       });
-
-      // Esperar durante unos segundos antes de redirigir al carrito
-      setTimeout(function () {
-        // Cambiar la URL a la página del carrito
-        window.location.href = carthtml;
-      }, 5000); // 5000 ms = 5 segundos
     }
   
       form.classList.add("was-validated");
     });
   });
 
-  
-//PRUEBAS VALIODACION
-//Codigo de boostrap para los inputs validos y no validos
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-/*(() => {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
-
-const alertContainer = document.getElementById('alert-container');
-function mostrarBootstrapAlert(tipo, mensaje) {
-    const alertDiv = document.createElement("div");
-    alertDiv.classList.add("alert", `alert-${tipo}`);
-    alertDiv.role = "alert";
-    alertDiv.textContent = mensaje;
-    
-    alertContainer.innerHTML = ""; // Limpiar el contenedor de alertas existentes
-    alertContainer.appendChild(alertDiv);
-}
-
- function mostrarAlerta(tipo, mensaje) {
-    
-    alertContainer.innerHTML = `
-      <div class="alert alert-${tipo} alert-dismissible fade show" role="alert">
-        ${mensaje}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-      </div>
-    `;
-  }
-*/
